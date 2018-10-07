@@ -127,14 +127,24 @@
     table {
       width: 100%;
       font-size: 18px;
+      border: none;
+      border-collapse: collapse;
+    }
+    
+    td:not(:first-of-type) {
+      text-align: center;
     }
 
+    td {
+      /* border: 1px solid rgba(0,0,0,0.075); */
+    }
+    
     tr:nth-child(2n + 1) {
       background-color: rgba(0,0,0,0.075);
     }
 
     tr, td, th {
-      border: none;
+    
       margin:0;
       padding: 15px;
     }
