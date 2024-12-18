@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-  <title>Webfonts Demo</title>
+  <title>Webfonts Demo2</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <style type="text/css">
     body,
@@ -158,6 +158,25 @@
       min-width: 250px;
     }
   </style>
+  <script>
+    (async () => {
+        try {
+            let result = false;
+            // Check if Storage Access API is available
+            if (document.hasStorageAccess) {
+                result = await document.hasStorageAccess();
+            } else {
+                // Fallback for browsers that don't support the API
+                result = navigator.cookieEnabled;
+            }
+ 
+            parent.postMessage({ cscookieresult: result }, "*");
+            console.log('cookie enabled result =', result);
+        } catch (e) {
+            console.error('cookie enabled error =', e);
+        }
+    })();
+</script>
 </head>
 
 <body>
@@ -173,7 +192,7 @@
     <div>
       <table summary="">
         <tr>
-          <th>Font</th>
+          <th>Font Tester</th>
           <th>Regular</th>
           <th>Bold</th>
           <th>Italic</th>
